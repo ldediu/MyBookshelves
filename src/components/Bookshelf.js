@@ -1,18 +1,20 @@
 import React from "react";
 import Book from "./Book";
 
-function Bookshelf() {
+const Bookshelf = ({ shelf, myBooks }) => {
+  const booksOnThisShelf = myBooks.filter((book) => book.shelf === shelf.id);
   return (
     <div className="bookshelf">
-      <h2 className="bookshelf-title">Shelf Name</h2>
+      <h2 className="bookshelf-title">{shelf.name}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          books list grid map
-          <Book />
+          {booksOnThisShelf.map((book) => (
+            <Book bookInfo={book} key={book.id} />
+          ))}
         </ol>
       </div>
     </div>
   );
-}
+};
 
 export default Bookshelf;

@@ -24,11 +24,12 @@ function App() {
   }, []);
 
   console.log(myBooks);
+  console.log("error =", error);
 
   return (
     <div className="app">
-      <Route exact path="/" component={MainPage} />
-      <Route path="/search" component={Search} />
+      <Route exact path="/" render={() => <MainPage myBooks={myBooks} />} />
+      <Route path="/search" render={() => <Search myBooks={myBooks} />} />
     </div>
   );
 }

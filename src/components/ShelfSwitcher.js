@@ -1,6 +1,6 @@
 import React from "react";
 
-function ShelfSwitcher() {
+const ShelfSwitcher = () => {
   return (
     <div className="book-shelf-changer">
       <select>
@@ -14,6 +14,6 @@ function ShelfSwitcher() {
       </select>
     </div>
   );
-}
+};
 
 export default ShelfSwitcher;

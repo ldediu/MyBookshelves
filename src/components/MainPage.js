@@ -2,16 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Bookshelf from "./Bookshelf";
 
-function MainPage() {
+const bookShelves = [
+  { name: "Currently reading", id: "currentlyReading" },
+  { name: "Want to Read", id: "wantToRead" },
+  { name: "Have Read", id: "read" },
+];
+
+const MainPage = ({ myBooks }) => {
   return (
     <div className="list-books">
       <div className="list-books-title">
-        <h1>My Bookshelf</h1>
+        <h1>My Bookshelves</h1>
       </div>
       <div className="list-books-content">
         <div>
-          map bookshelves
-          <Bookshelf />
+          {bookShelves.map((shelf) => (
+            <Bookshelf shelf={shelf} key={shelf.id} myBooks={myBooks} />
+          ))}
         </div>
       </div>
       <div className="open-search">
@@ -21,6 +28,6 @@ function MainPage() {
       </div>
     </div>
   );
-}
+};
 
 export default MainPage;

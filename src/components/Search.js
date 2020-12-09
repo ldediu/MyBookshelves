@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchResults from "./SearchResults";
 
-function Search() {
+const Search = () => {
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -16,6 +16,6 @@ function Search() {
       <SearchResults />
     </div>
   );
-}
+};
 
 export default Search;

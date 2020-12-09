@@ -1,7 +1,7 @@
 import React from "react";
 import Book from "./Book";
 
-function SearchResults() {
+const SearchResults = () => {
   return (
     <div className="search-books-results">
       <ol className="books-grid">
@@ -10,6 +10,6 @@ function SearchResults() {
       </ol>
     </div>
   );
-}
+};
 
 export default SearchResults;

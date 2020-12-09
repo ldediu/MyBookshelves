@@ -1,7 +1,7 @@
 import React from "react";
 import ShelfSwitcher from "./ShelfSwitcher";
 
-function Book() {
+const Book = ({ bookInfo }) => {
   return (
     <li>
       <div className="book">
@@ -11,17 +11,20 @@ function Book() {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: ``,
-              background: "red",
+              backgroundImage: `url(${
+                bookInfo.imageLinks
+                  ? bookInfo.imageLinks.thumbnail
+                  : "icons/bookNoCover.png"
+              })`,
             }}
           />
           <ShelfSwitcher />
         </div>
-        <div className="book-title">Book Title</div>
-        <div className="book-authors"></div>
+        <div className="book-title">{bookInfo.title}</div>
+        <div className="book-authors">{bookInfo.authors.join(", ")}</div>
       </div>
     </li>
   );
-}
+};
 
 export default Book;
