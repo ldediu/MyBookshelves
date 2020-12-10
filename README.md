@@ -1,40 +1,17 @@
-# MyReads Project
+# My Bookshelves
 
-## Backend Server
+MyBookshelves is a simple app that allows you to select and categorize books you have read, are currently reading, or want to read.
+It also allows you to search for books based on title and author.
 
-### `getAll`
+## Getting started
 
-Method Signature:
+The following steps will help install and run My Reads App on your local computer.
+- Download or clone this repository
+- run npm install from the within the root directory
+- run npm start or yarn start
+- The app will run locally on *port: 3000* 
 
-```js
-getAll()
-```
+## Live
 
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query)
-```
-
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
+https://modest-yalow-c4c8e4.netlify.app/
 
