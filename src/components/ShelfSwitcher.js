@@ -4,7 +4,7 @@ const ShelfSwitcher = ({ bookInfo, shelf, changeShelf }) => {
   return (
     <div className="book-shelf-changer">
       <select
-        value={shelf.id}
+        value={shelf.id || "none"}
         onChange={(e) => changeShelf(bookInfo, e.target.value)}
       >
         <option value="move" disabled>
