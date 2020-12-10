@@ -1,7 +1,7 @@
 import React from "react";
 import ShelfSwitcher from "./ShelfSwitcher";
 
-const Book = ({ bookInfo }) => {
+const Book = ({ bookInfo, shelf, changeShelf }) => {
   return (
     <li>
       <div className="book">
@@ -18,10 +18,16 @@ const Book = ({ bookInfo }) => {
               })`,
             }}
           />
-          <ShelfSwitcher />
+          <ShelfSwitcher
+            bookInfo={bookInfo}
+            shelf={shelf}
+            changeShelf={changeShelf}
+          />
         </div>
         <div className="book-title">{bookInfo.title}</div>
-        <div className="book-authors">{bookInfo.authors.join(", ")}</div>
+        <div className="book-authors">
+          {bookInfo.authors ? bookInfo.authors.join(", ") : "No Author"}
+        </div>
       </div>
     </li>
   );

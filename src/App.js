@@ -7,10 +7,10 @@ import Search from "./components/Search";
 
 function App() {
   const [myBooks, setMyBooks] = useState([]);
+  const [searchedBooks, setSearchedBooks] = useState([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    console.log("useeffect running");
     const fetchData = async () => {
       try {
         const result = await BooksAPI.getAll();
@@ -23,13 +23,55 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(myBooks);
-  console.log("error =", error);
+  const changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).catch((err) => {
+      console.log(err);
+      setError(true);
+    });
+    let newBooks;
+    if (shelf === "none") {
+      newBooks = myBooks.filter((bk) => bk.id !== book.id);
+    } else {
+      book.shelf = shelf;
+      newBooks = myBooks.filter((bk) => bk.id !== book.id).concat(book);
+    }
+    setMyBooks(newBooks);
+  };
+
+  const searchBooks = (query) => {
+    if (query.length > 0) {
+      BooksAPI.search(query).then((books) => {
+        if (books.error) {
+          setSearchedBooks([]);
+        } else {
+          setSearchedBooks(books);
+        }
+      });
+    } else {
+      setSearchedBooks([]);
+    }
+  };
 
   return (
     <div className="app">
-      <Route exact path="/" render={() => <MainPage myBooks={myBooks} />} />
-      <Route path="/search" render={() => <Search myBooks={myBooks} />} />
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <MainPage myBooks={myBooks} changeShelf={changeShelf} error={error} />
+        )}
+      />
+      <Route
+        path="/search"
+        render={() => (
+          <Search
+            searchedBooks={searchedBooks}
+            searchBooks={searchBooks}
+            changeShelf={changeShelf}
+            setSearchedBooks={setSearchedBooks}
+          />
+        )}
+      />
     </div>
   );
 }

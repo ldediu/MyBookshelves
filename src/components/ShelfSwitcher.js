@@ -1,9 +1,12 @@
 import React from "react";
 
-const ShelfSwitcher = () => {
+const ShelfSwitcher = ({ bookInfo, shelf, changeShelf }) => {
   return (
     <div className="book-shelf-changer">
-      <select>
+      <select
+        value={shelf.id}
+        onChange={(e) => changeShelf(bookInfo, e.target.value)}
+      >
         <option value="move" disabled>
           Move to...
         </option>

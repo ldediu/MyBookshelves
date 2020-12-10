@@ -8,16 +8,25 @@ const bookShelves = [
   { name: "Have Read", id: "read" },
 ];
 
-const MainPage = ({ myBooks }) => {
+const MainPage = ({ myBooks, changeShelf, error }) => {
+  if (error) {
+    return <h1>Something went wrong, 404</h1>;
+  }
   return (
     <div className="list-books">
       <div className="list-books-title">
         <h1>My Bookshelves</h1>
+        <div className="shelfPic"></div>
       </div>
       <div className="list-books-content">
         <div>
           {bookShelves.map((shelf) => (
-            <Bookshelf shelf={shelf} key={shelf.id} myBooks={myBooks} />
+            <Bookshelf
+              shelf={shelf}
+              key={shelf.id}
+              myBooks={myBooks}
+              changeShelf={changeShelf}
+            />
           ))}
         </div>
       </div>
