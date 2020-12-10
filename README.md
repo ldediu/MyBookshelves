@@ -5,7 +5,7 @@ It also allows you to search for books based on title and author.
 
 ## Getting started
 
-The following steps will help install and run My Reads App on your local computer.
+The following steps will help install and run the app on your local computer.
 - Download or clone this repository
 - run npm install from the within the root directory
 - run npm start or yarn start
