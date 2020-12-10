@@ -18,7 +18,7 @@ const Search = ({
 
   return (
     <div className="search-books">
-      <div className="list-books-title">
+      <div className="list-books-title-search">
         <h1>My Bookshelves</h1>
         <div className="shelfPic"></div>
       </div>

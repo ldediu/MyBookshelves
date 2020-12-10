@@ -13,18 +13,12 @@ body, .app {
 /* main page */
 
 .list-books-title {
-  /*padding: 10px 0;*/
+  padding: 10px 0;
   background: #a91462;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3;
 }
 
 .shelfPic {
@@ -94,6 +88,25 @@ body, .app {
 
 
 /* search page */
+
+.list-books-title-search {
+  position: fixed;
+  background: #a91462;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 5;
+}
+
+.list-books-title-search h1 {
+  font-weight: initial;
+}
 
 .search-books-bar {
   position: fixed;
